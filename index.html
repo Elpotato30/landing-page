@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oracle Red Bull Racing | Portal Oficial</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter & Orbitron -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rbrNavy: '#05070d',
+                        rbrDarkBlue: '#090c15',
+                        rbrCardBlue: '#0e1422',
+                        rbrBlueAccent: '#162238',
+                        rbrRed: '#e10600',
+                        rbrRedHover: '#ff1e27',
+                        rbrYellow: '#ffcc00',
+                        rbrGold: '#fcd116'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        racing: ['Orbitron', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #05070d;
+            color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #05070d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #162238;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e10600;
+        }
+
+        /* Glassmorphism Styles */
+        .glass-panel {
+            background: rgba(14, 20, 34, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-nav {
+            background: rgba(5, 7, 13, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-card {
+            background: linear-gradient(135deg, rgba(14, 20, 34, 0.85) 0%, rgba(9, 12, 21, 0.95) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(225, 6, 0, 0.5);
+            box-shadow: 0 12px 32px -10px rgba(225, 6, 0, 0.25);
+            transform: translateY(-4px);
+        }
+
+        /* Red & Yellow Accent Hover Lines */
+        .card-accent-hover {
+            position: relative;
+            overflow: hidden;
+        }
+        .card-accent-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #e10600, #ffcc00);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .card-accent-hover:hover::before {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-rbrRed selection:text-white">
+
+    <!-- Speed Line Canvas Background -->
+    <canvas id="speedCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-20"></canvas>
+
+    <header id="mainHeader" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 glass-nav py-3.5 px-4 md:px-8">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#inicio" class="flex items-center gap-3 group">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQffYmuwOuueIncS8lwTyCqTrlQfpaDzOo2OL5jIVtn79EjJP_arDd5catK&s=10" 
+                     alt="Oracle Red Bull Racing Logo" 
+                     class="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+                <div class="hidden sm:flex flex-col">
+                    <span class="font-racing font-bold text-sm tracking-wider text-white">ORACLE</span>
+                    <span class="font-racing text-xs text-rbrRed font-semibold tracking-widest uppercase">Red Bull Racing</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden lg:flex items-center space-x-6 text-sm font-medium text-gray-300">
+                <a href="#inicio" class="hover:text-rbrYellow transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-rbrRed hover:after:w-full after:transition-all">Início</a>
+                <a href="#equipe" class="hover:text-rbrYellow transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-rbrRed hover:after:w-full after:transition-all">A Equipe</a>
+                <a href="#pilotos" class="hover:text-rbrYellow transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-rbrRed hover:after:w-full after:transition-all">Pilotos</a>
+                <a href="#chefe" class="hover:text-rbrYellow transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-rbrRed hover:after:w-full after:transition-all">Liderança</a>
+                <a href="#engenharia" class="hover:text-rbrYellow transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-rbrRed hover:after:w-full after:transition-all">Engenharia</a>
+                <a href="#conquistas" class="hover:text-rbrYellow transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-rbrRed hover:after:w-full after:transition-all">Conquistas</a>
+                <a href="#historia" class="hover:text-rbrYellow transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-rbrRed hover:after:w-full after:transition-all">História</a>
+            </nav>
+
+            <!-- Action CTA & Mobile Toggle -->
+            <div class="flex items-center gap-4">
+                <a href="#equipe" class="hidden sm:inline-flex items-center gap-2 bg-rbrRed hover:bg-rbrRedHover text-white font-racing text-xs font-bold px-5 py-2.5 rounded-lg uppercase tracking-wider transition-all shadow-lg shadow-rbrRed/25">
+                    <span>Conheça a equipe</span>
+                    <i class="fa-solid fa-chevron-right text-xs"></i>
+                </a>
+
+                <button id="mobileMenuBtn" aria-label="Abrir Menu" class="lg:hidden text-gray-300 hover:text-white p-2 rounded-lg focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileDrawer" class="hidden lg:hidden glass-panel rounded-2xl mt-3 p-5 border border-gray-800 space-y-3">
+            <nav class="flex flex-col space-y-2 font-medium text-gray-200 text-sm">
+                <a href="#inicio" class="mobile-link hover:text-rbrYellow py-2 border-b border-gray-800/60">Início</a>
+                <a href="#equipe" class="mobile-link hover:text-rbrYellow py-2 border-b border-gray-800/60">A Equipe</a>
+                <a href="#pilotos" class="mobile-link hover:text-rbrYellow py-2 border-b border-gray-800/60">Pilotos</a>
+                <a href="#chefe" class="mobile-link hover:text-rbrYellow py-2 border-b border-gray-800/60">Liderança</a>
+                <a href="#engenharia" class="mobile-link hover:text-rbrYellow py-2 border-b border-gray-800/60">Engenharia</a>
+                <a href="#conquistas" class="mobile-link hover:text-rbrYellow py-2 border-b border-gray-800/60">Conquistas</a>
+                <a href="#historia" class="mobile-link hover:text-rbrYellow py-2 border-b border-gray-800/60">História</a>
+            </nav>
+            <a href="#equipe" class="mobile-link w-full text-center block bg-rbrRed hover:bg-rbrRedHover text-white font-racing font-bold px-4 py-3 rounded-lg uppercase tracking-wider text-xs">
+                Conheça a equipe
+            </a>
+        </div>
+    </header>
+
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-4 md:px-8 overflow-hidden z-10">
+        <!-- Background Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=2000&q=80" 
+                 alt="F1 Track Racing Background" 
+                 class="w-full h-full object-cover object-center opacity-30 mix-blend-luminosity">
+            <div class="absolute inset-0 bg-gradient-to-t from-rbrNavy via-rbrNavy/80 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-rbrNavy via-transparent to-rbrNavy"></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto text-center relative z-10 space-y-8 mt-4">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border-rbrRed/40 text-rbrYellow text-xs md:text-sm font-racing tracking-widest uppercase">
+                <span class="w-2 h-2 rounded-full bg-rbrRed"></span>
+                <span>ORACLE RED BULL RACING</span>
+            </div>
+
+            <!-- Main Headline -->
+            <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-racing font-extrabold tracking-tight text-white leading-tight">
+                DRIVEN BY <span class="text-transparent bg-clip-text bg-gradient-to-r from-rbrRed via-rbrYellow to-white">SPEED.</span><br>
+                BUILT TO <span class="text-rbrYellow">WIN.</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="max-w-3xl mx-auto text-base md:text-xl text-gray-300 font-light leading-relaxed">
+                Performance, tecnologia e precisão nas pistas mais importantes do mundo.
+            </p>
+
+            <!-- Hero Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <a href="#pilotos" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-rbrRed hover:bg-rbrRedHover text-white font-racing font-bold px-8 py-4 rounded-xl shadow-xl shadow-rbrRed/20 transition-all text-sm tracking-wider uppercase">
+                    <i class="fa-solid fa-helmet-safety text-lg"></i>
+                    <span>Conheça os pilotos</span>
+                </a>
+                <a href="#historia" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 glass-panel hover:bg-rbrBlueAccent text-white font-racing font-bold px-8 py-4 rounded-xl border border-gray-700 hover:border-rbrYellow transition-all text-sm tracking-wider uppercase">
+                    <i class="fa-solid fa-flag-checkered text-lg text-rbrYellow"></i>
+                    <span>Nossa história</span>
+                </a>
+            </div>
+
+            <!-- Telemetry Quick Spec Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-10">
+                <div class="glass-card p-4 rounded-xl text-left border-l-4 border-l-rbrRed">
+                    <p class="text-[10px] text-gray-400 font-mono uppercase">LIVERY / CHASSI</p>
+                    <p class="text-lg font-racing font-bold text-white">RB20 / RB21</p>
+                </div>
+                <div class="glass-card p-4 rounded-xl text-left border-l-4 border-l-rbrYellow">
+                    <p class="text-[10px] text-gray-400 font-mono uppercase">UNIDADE POTÊNCIA</p>
+                    <p class="text-lg font-racing font-bold text-white">Honda RBPT</p>
+                </div>
+                <div class="glass-card p-4 rounded-xl text-left border-l-4 border-l-rbrRed">
+                    <p class="text-[10px] text-gray-400 font-mono uppercase">PIT STOP RECORDE</p>
+                    <p class="text-lg font-racing font-bold text-rbrYellow">1.82s</p>
+                </div>
+                <div class="glass-card p-4 rounded-xl text-left border-l-4 border-l-rbrYellow">
+                    <p class="text-[10px] text-gray-400 font-mono uppercase">SEDE GLOBAL</p>
+                    <p class="text-lg font-racing font-bold text-white">Milton Keynes, UK</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="equipe" class="py-24 px-4 md:px-8 relative z-10 bg-gradient-to-b from-rbrNavy via-rbrDarkBlue to-rbrNavy">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-rbrRed font-racing text-xs font-bold tracking-widest uppercase">ALTO DESEMPENHO</span>
+                <h2 class="text-3xl md:text-5xl font-racing font-bold text-white">Mais que uma equipe. Uma máquina de competição.</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-rbrRed to-rbrYellow mx-auto rounded-full mt-2"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Text Breakdown -->
+                <div class="lg:col-span-6 space-y-6 text-gray-300 leading-relaxed text-base">
+                    <p class="text-white font-medium text-lg border-l-4 border-rbrRed pl-4">
+                        A presença da Red Bull na Fórmula 1 é sinônimo de superação constante dos limites da física e da tecnologia de ponta no automobilismo mundial.
+                    </p>
+                    <p>
+                        Com foco total em engenharia avançada e inovação, nosso desenvolvimento aerodinâmico transforma dados de simulação em milissegundos de vantagem nas pistas.
+                    </p>
+                    <p>
+                        A estratégia de corrida perfeita nasce do trabalho conjunto e cirúrgico entre nossos pilotos, engenheiros de pista e a lendária equipe de box.
+                    </p>
+
+                    <!-- Feature Badges -->
+                    <div class="grid grid-cols-2 gap-4 pt-2">
+                        <div class="glass-panel p-4 rounded-xl border-l-2 border-rbrYellow">
+                            <i class="fa-solid fa-microchip text-rbrYellow text-xl mb-2"></i>
+                            <h3 class="font-racing text-white font-bold text-sm">Inovação Oracle</h3>
+                            <p class="text-xs text-gray-400">Milhões de simulações em tempo real por corrida.</p>
+                        </div>
+                        <div class="glass-panel p-4 rounded-xl border-l-2 border-rbrRed">
+                            <i class="fa-solid fa-wind text-rbrRed text-xl mb-2"></i>
+                            <h3 class="font-racing text-white font-bold text-sm">Aerodinâmica Extrema</h3>
+                            <p class="text-xs text-gray-400">Eficiência de efeito solo e fluxo de ar otimizado.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Car Visual Display -->
+                <div class="lg:col-span-6">
+                    <div class="relative glass-card p-3 rounded-2xl overflow-hidden group">
+                        <img src="https://s2-ge.glbimg.com/FcU4Gtg3R-c2iDqVXTrqQ_qmBh0=/0x0:3840x2160/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2026/G/5/StmFEIT7GUyF60iKluFw/si202601140767.jpg" 
+                             alt="Red Bull Racing F1 Car Concept" 
+                             class="w-full h-[380px] object-cover rounded-xl transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-rbrNavy via-transparent to-transparent rounded-xl"></div>
+                        <div class="absolute bottom-6 left-6 right-6 p-4 glass-panel rounded-xl border-gray-700">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-rbrYellow font-racing text-[10px] uppercase tracking-wider">TECNOLOGIA DE PISTA</p>
+                                    <h3 class="text-white font-racing font-bold text-base">Chassi Monocoque & Eficiência Híbrida</h3>
+                                </div>
+                                <span class="bg-rbrRed text-white text-[10px] font-racing px-3 py-1 rounded-full font-bold">RB POWER</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pilotos" class="py-24 px-4 md:px-8 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-rbrYellow font-racing text-xs font-bold tracking-widest uppercase">DUPLA DE PILOTOS</span>
+                <h2 class="text-3xl md:text-5xl font-racing font-bold text-white">Pilotos Oficiais</h2>
+                <p class="text-gray-400 text-sm">Domínio técnico, velocidade bruta e precisão em todas as voltas.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Driver Card 1: Max Verstappen -->
+                <div class="glass-card rounded-2xl overflow-hidden card-accent-hover group flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-80 overflow-hidden bg-gradient-to-b from-rbrBlueAccent to-rbrNavy">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxJTq0RXzRLbeWR0y1cqtJB1ZylGGrQL5SXs3gyyv_Hrmib84h4tS4tMiQobz4it8ky7HmDXv2sKNf-mg-ka1PPM7z4LQMHsjksmb9eQyJhQ&s=10" 
+                                 alt="Max Verstappen" 
+                                 class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 filter grayscale contrast-125 group-hover:grayscale-0">
+                            <div class="absolute top-4 right-4 font-racing font-extrabold text-6xl text-white/10 group-hover:text-rbrRed/40 transition-colors">
+                                #1
+                            </div>
+                            <div class="absolute bottom-4 left-4 flex items-center gap-2 bg-rbrNavy/80 px-3 py-1 rounded-full border border-gray-700">
+                                <span class="text-lg">🇳🇱</span>
+                                <span class="text-xs text-gray-300 font-semibold uppercase">Holanda</span>
+                            </div>
+                        </div>
+
+                        <div class="p-6 space-y-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-2xl font-racing font-bold text-white">Max Verstappen</h3>
+                                    <p class="text-rbrYellow text-xs font-racing uppercase tracking-wider font-semibold">TETRACAMPEÃO MUNDIAL DE F1</p>
+                                </div>
+                            </div>
+
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                Lidera a equipe com agressividade cirúrgica e ritmo incomparável. Consolidou-se como um dos pilotos mais vitoriosos e dominantes da história do automobilismo.
+                            </p>
+
+                            <!-- Mini Stats -->
+                            <div class="grid grid-cols-3 gap-2 py-3 border-y border-gray-800 text-center font-racing">
+                                <div>
+                                    <p class="text-[10px] text-gray-500 uppercase">Títulos</p>
+                                    <p class="text-lg font-bold text-rbrYellow">4</p>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] text-gray-500 uppercase">Vitórias</p>
+                                    <p class="text-lg font-bold text-white">60+</p>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] text-gray-500 uppercase">Pódios</p>
+                                    <p class="text-lg font-bold text-white">100+</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-0">
+                        <button onclick="openDriverModal('verstappen')" class="w-full py-3 bg-rbrBlueAccent hover:bg-rbrRed text-white font-racing text-xs font-bold uppercase rounded-xl transition-colors tracking-wider">
+                            Ver Perfil
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Driver Card 2: Isack Hadjar -->
+                <div class="glass-card rounded-2xl overflow-hidden card-accent-hover group flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-80 overflow-hidden bg-gradient-to-b from-rbrBlueAccent to-rbrNavy">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZvyzPAUkfarKxKhTiLnMk5cG5m_P_2ruIpYoLzJf82Q&s=10" 
+                                 alt="Isack Hadjar" 
+                                 class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105 filter grayscale contrast-125 group-hover:grayscale-0">
+                            <div class="absolute top-4 right-4 font-racing font-extrabold text-6xl text-white/10 group-hover:text-rbrYellow/40 transition-colors">
+                                #6
+                            </div>
+                            <div class="absolute bottom-4 left-4 flex items-center gap-2 bg-rbrNavy/80 px-3 py-1 rounded-full border border-gray-700">
+                                <span class="text-lg">🇫🇷</span>
+                                <span class="text-xs text-gray-300 font-semibold uppercase">França</span>
+                            </div>
+                        </div>
+
+                        <div class="p-6 space-y-4">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-2xl font-racing font-bold text-white">Isack Hadjar</h3>
+                                    <p class="text-rbrRed text-xs font-racing uppercase tracking-wider font-semibold">PILOTO TITULAR</p>
+                                </div>
+                            </div>
+
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                Jovem talento revelado pelo Red Bull Junior Team. Destaca-se pela rápida adaptação, ultrapassagens arrojadas e grande velocidade técnica nas pistas.
+                            </p>
+
+                            <!-- Mini Stats -->
+                            <div class="grid grid-cols-3 gap-2 py-3 border-y border-gray-800 text-center font-racing">
+                                <div>
+                                    <p class="text-[10px] text-gray-500 uppercase">Nacionalidade</p>
+                                    <p class="text-base font-bold text-white">Francesa</p>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] text-gray-500 uppercase">Número</p>
+                                    <p class="text-lg font-bold text-rbrYellow">#6</p>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] text-gray-500 uppercase">Programa</p>
+                                    <p class="text-base font-bold text-rbrRed">RB Junior</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-0">
+                        <button onclick="openDriverModal('hadjar')" class="w-full py-3 bg-rbrBlueAccent hover:bg-rbrRed text-white font-racing text-xs font-bold uppercase rounded-xl transition-colors tracking-wider">
+                            Ver Perfil
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="chefe" class="py-24 px-4 md:px-8 bg-gradient-to-b from-rbrNavy via-rbrCardBlue to-rbrNavy relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Image Box -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative glass-card p-3 rounded-2xl overflow-hidden">
+                        <img src="https://img.redbull.com/images/c_crop,x_0,y_466,h_3200,w_2560/c_fill,w_400,h_500/q_auto,f_auto/redbullcom/2025/7/11/duputdbhlemynrqd6eqg/laurent-mekies-oracle-red-bull-racing-team-principal" 
+                             alt="Laurent Mekies Team Principal" 
+                             class="w-full h-[450px] object-cover rounded-xl filter contrast-110">
+                        <div class="absolute top-6 left-6 glass-panel px-4 py-2 rounded-lg border-l-4 border-rbrRed">
+                            <p class="text-[10px] text-gray-400 font-mono">NOVO COMANDO TÉCNICO</p>
+                            <p class="text-sm font-racing font-bold text-white">LIDERANÇA ESTRATÉGICA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leadership Text -->
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="text-rbrRed font-racing text-xs font-bold tracking-widest uppercase">LIDERANÇA NA PISTA E FORA DELA</span>
+                    <h2 class="text-3xl md:text-5xl font-racing font-bold text-white">Gestão e Visão Técnica</h2>
+                    <h3 class="text-xl font-racing text-rbrYellow font-semibold">Laurent Mekies — Chefe de Equipe (Team Principal)</h3>
+                    
+                    <p class="text-gray-300 leading-relaxed">
+                        Com vasta experiência técnica e executiva na Fórmula 1 e na FIA, Laurent Mekies assume o comando operacional da Oracle Red Bull Racing para liderar a equipe em uma nova era de regulamentos e inovação em engenharia de corrida.
+                    </p>
+
+                    <blockquote class="glass-panel p-6 rounded-xl border-l-4 border-rbrRed text-gray-200 italic text-sm">
+                        "A Fórmula 1 exige precisão cirúrgica e evolução diária. Nosso compromisso é manter o espírito vencedor e a competitividade máxima em cada Grande Prêmio."
+                    </blockquote>
+
+                    <!-- Key Metrics -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
+                        <div class="glass-card p-4 rounded-xl text-center">
+                            <span class="text-2xl font-racing font-bold text-rbrYellow">20+</span>
+                            <p class="text-[10px] text-gray-400 mt-1 uppercase">Anos de Experiência em F1</p>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl text-center">
+                            <span class="text-2xl font-racing font-bold text-rbrRed">FIA & F1</span>
+                            <p class="text-[10px] text-gray-400 mt-1 uppercase">Liderança Operacional</p>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl text-center">
+                            <span class="text-2xl font-racing font-bold text-white">100%</span>
+                            <p class="text-[10px] text-gray-400 mt-1 uppercase">Foco na Vitoria</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="engenharia" class="py-24 px-4 md:px-8 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-rbrYellow font-racing text-xs font-bold tracking-widest uppercase">ENGENHARIA AVANÇADA</span>
+                <h2 class="text-3xl md:text-5xl font-racing font-bold text-white">Engenharia no Limite</h2>
+                <p class="text-gray-400 text-sm">Tecnologia de ponta e desenvolvimento aerodinâmico de classe mundial.</p>
+            </div>
+
+            <!-- Static Tech Display Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1: Power Unit -->
+                <div class="glass-card p-6 rounded-2xl border-t-4 border-t-rbrYellow flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-rbrYellow/20 flex items-center justify-center text-rbrYellow text-2xl font-bold">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h3 class="font-racing font-bold text-xl text-white">Unidade de Potência</h3>
+                        <p class="text-rbrYellow text-xs font-racing font-semibold uppercase">Honda RBPT V6 Turbo</p>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Motor V6 Turbo Híbrido de 1.6L capaz de gerar mais de 1.000 CV a 15.000 RPM, alimentado por um duplo sistema elétrico de recuperação de energia (MGU-K / MGU-H).
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gray-800/80 font-mono text-xs text-gray-400 flex justify-between">
+                        <span>POTÊNCIA</span>
+                        <span class="text-white font-bold">1000+ CV</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Aerodynamics -->
+                <div class="glass-card p-6 rounded-2xl border-t-4 border-t-rbrRed flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-rbrRed/20 flex items-center justify-center text-rbrRed text-2xl font-bold">
+                            <i class="fa-solid fa-wind"></i>
+                        </div>
+                        <h3 class="font-racing font-bold text-xl text-white">Aerodinâmica</h3>
+                        <p class="text-rbrRed text-xs font-racing font-semibold uppercase">Assoalho Venturi & Downforce</p>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Canais de efeito solo sob o assoalho produzem sucção aerodinâmica máxima, permitindo altas velocidades em curvas de alta com total estabilidade.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gray-800/80 font-mono text-xs text-gray-400 flex justify-between">
+                        <span>ACELERACAO LATERAL</span>
+                        <span class="text-white font-bold">> 5G</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Monocoque Chassis -->
+                <div class="glass-card p-6 rounded-2xl border-t-4 border-t-rbrYellow flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-rbrYellow/20 flex items-center justify-center text-rbrYellow text-2xl font-bold">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="font-racing font-bold text-xl text-white">Chassi Monocoque</h3>
+                        <p class="text-rbrYellow text-xs font-racing font-semibold uppercase">Fibra de Carbono Estrutural</p>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Célula de sobrevivência ultraleve em fibra de carbono e favo de mel de alumínio, projetada para suportar e absorver forças de impacto extremas.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gray-800/80 font-mono text-xs text-gray-400 flex justify-between">
+                        <span>PESO MÍNIMO</span>
+                        <span class="text-white font-bold">798 KG</span>
+                    </div>
+                </div>
+
+                <!-- Card 4: DRS & Wings -->
+                <div class="glass-card p-6 rounded-2xl border-t-4 border-t-rbrRed flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-rbrRed/20 flex items-center justify-center text-rbrRed text-2xl font-bold">
+                            <i class="fa-solid fa-gauge-high"></i>
+                        </div>
+                        <h3 class="font-racing font-bold text-xl text-white">Asa Traseira e DRS</h3>
+                        <p class="text-rbrRed text-xs font-racing font-semibold uppercase">Redução de Drag Hidráulico</p>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Flap hidráulico ativo que reduz o atrito aerodinâmico em retas pré-determinadas, permitindo velocidades de ponta para ultrapassagens precisas.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gray-800/80 font-mono text-xs text-gray-400 flex justify-between">
+                        <span>GANHO EM RETAS</span>
+                        <span class="text-white font-bold">+15-20 KM/H</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="estatisticas" class="py-20 px-4 md:px-8 bg-gradient-to-r from-rbrNavy via-rbrBlueAccent to-rbrNavy border-y border-gray-800 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
+                <div class="glass-panel p-6 rounded-2xl">
+                    <span class="counter font-racing text-3xl md:text-5xl font-extrabold text-rbrYellow" data-target="6">0</span>
+                    <p class="text-[10px] font-racing uppercase tracking-wider text-gray-400 mt-2">Campeonatos de Construtores</p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl">
+                    <span class="counter font-racing text-3xl md:text-5xl font-extrabold text-rbrRed" data-target="7">0</span>
+                    <p class="text-[10px] font-racing uppercase tracking-wider text-gray-400 mt-2">Campeonatos de Pilotos</p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl">
+                    <span class="counter font-racing text-3xl md:text-5xl font-extrabold text-white" data-target="121">0</span>
+                    <p class="text-[10px] font-racing uppercase tracking-wider text-gray-400 mt-2">Vitórias em GPs</p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl">
+                    <span class="counter font-racing text-3xl md:text-5xl font-extrabold text-rbrYellow" data-target="103">0</span>
+                    <p class="text-[10px] font-racing uppercase tracking-wider text-gray-400 mt-2">Pole Positions</p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl">
+                    <span class="counter font-racing text-3xl md:text-5xl font-extrabold text-white" data-target="280">0</span>
+                    <p class="text-[10px] font-racing uppercase tracking-wider text-gray-400 mt-2">Pódios Conquistados</p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl">
+                    <span class="counter font-racing text-3xl md:text-5xl font-extrabold text-rbrRed" data-target="31">0</span>
+                    <p class="text-[10px] font-racing uppercase tracking-wider text-gray-400 mt-2">Dobradinhas (1º e 2º)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="conquistas" class="py-24 px-4 md:px-8 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-rbrRed font-racing text-xs font-bold tracking-widest uppercase">HALL DE CONQUISTAS</span>
+                <h2 class="text-3xl md:text-5xl font-racing font-bold text-white">Momentos Marcantes</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-rbrRed to-rbrYellow mx-auto rounded-full mt-2"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card p-8 rounded-2xl space-y-4 card-accent-hover">
+                    <div class="w-12 h-12 rounded-xl bg-rbrRed/20 flex items-center justify-center text-rbrRed text-2xl font-bold">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <h3 class="font-racing text-xl font-bold text-white">Tetra Consecutivo Vettel (2010 - 2013)</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Dominância com Sebastian Vettel e o projetista Adrian Newey, garantindo quatro títulos mundiais consecutivos de Construtores e Pilotos.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-8 rounded-2xl space-y-4 card-accent-hover">
+                    <div class="w-12 h-12 rounded-xl bg-rbrYellow/20 flex items-center justify-center text-rbrYellow text-2xl font-bold">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <h3 class="font-racing text-xl font-bold text-white">Era Verstappen (2021 - Presente)</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Conquista de 4 campeonatos mundiais consecutivos de pilotos, quebrando o recorde histórico de vitórias em uma única temporada.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-8 rounded-2xl space-y-4 card-accent-hover">
+                    <div class="w-12 h-12 rounded-xl bg-rbrRed/20 flex items-center justify-center text-rbrRed text-2xl font-bold">
+                        <i class="fa-solid fa-stopwatch"></i>
+                    </div>
+                    <h3 class="font-racing text-xl font-bold text-white">Recorde do Pit Stop Mundial (1.82s)</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        A troca de 4 pneus mais rápida registrada na F1 em Interlagos, demonstrando a perfeita precisão da mecânica da equipe.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="historia" class="py-24 px-4 md:px-8 bg-gradient-to-b from-rbrNavy via-rbrDarkBlue to-rbrNavy relative z-10">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-rbrYellow font-racing text-xs font-bold tracking-widest uppercase">LINHA DO TEMPO</span>
+                <h2 class="text-3xl md:text-5xl font-racing font-bold text-white">Evolução Histórica</h2>
+                <p class="text-gray-400 text-sm">Arquivo histórico da trajetória da equipe na F1.</p>
+            </div>
+
+            <!-- Vertical Timeline Structure -->
+            <div class="relative border-l-2 border-rbrRed/40 ml-4 md:ml-32 space-y-12">
+                <!-- 2004-2005 -->
+                <div class="relative pl-8 md:pl-12 group">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-rbrRed group-hover:scale-125 transition-transform border-4 border-rbrNavy"></div>
+                    <span class="font-racing text-rbrYellow text-xs font-bold tracking-widest">2004 — 2005</span>
+                    <h3 class="text-2xl font-racing font-bold text-white mt-1">Fundação e Estreia Oficial</h3>
+                    <p class="text-gray-400 text-sm mt-2 max-w-2xl leading-relaxed">
+                        Aquisição da Jaguar Racing e estreia oficial da Red Bull Racing na Fórmula 1 no GP da Austrália de 2005, pontuando logo nas primeiras corridas.
+                    </p>
+                </div>
+
+                <!-- 2009-2010 -->
+                <div class="relative pl-8 md:pl-12 group">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-rbrYellow group-hover:scale-125 transition-transform border-4 border-rbrNavy"></div>
+                    <span class="font-racing text-rbrYellow text-xs font-bold tracking-widest">2009 — 2010</span>
+                    <h3 class="text-2xl font-racing font-bold text-white mt-1">Primeira Vitória e Primeiro Título Mundial</h3>
+                    <p class="text-gray-400 text-sm mt-2 max-w-2xl leading-relaxed">
+                        Primeira vitória no GP da China de 2009 e conquista do primeiro título mundial de Construtores e Pilotos em 2010.
+                    </p>
+                </div>
+
+                <!-- 2016 -->
+                <div class="relative pl-8 md:pl-12 group">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-rbrRed group-hover:scale-125 transition-transform border-4 border-rbrNavy"></div>
+                    <span class="font-racing text-rbrYellow text-xs font-bold tracking-widest">2016</span>
+                    <h3 class="text-2xl font-racing font-bold text-white mt-1">Estreia Histórica de Max Verstappen</h3>
+                    <p class="text-gray-400 text-sm mt-2 max-w-2xl leading-relaxed">
+                        Max Verstappen vence sua primeira corrida pela Red Bull no GP da Espanha com apenas 18 anos, tornando-se o mais jovem vencedor da história da F1.
+                    </p>
+                </div>
+
+                <!-- 2021-Present -->
+                <div class="relative pl-8 md:pl-12 group">
+                    <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-rbrYellow group-hover:scale-125 transition-transform border-4 border-rbrNavy"></div>
+                    <span class="font-racing text-rbrYellow text-xs font-bold tracking-widest">2021 — PRESENTES</span>
+                    <h3 class="text-2xl font-racing font-bold text-white mt-1">Era de Dominância Híbrida e Oracle RBPT</h3>
+                    <p class="text-gray-400 text-sm mt-2 max-w-2xl leading-relaxed">
+                        Estabelecimento de múltiplos títulos consecutivos de pilotos e construtores com tecnologia de ponta e inovação contínua.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-4 md:px-8 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-rbrRed font-racing text-xs font-bold tracking-widest uppercase">EXPERIÊNCIA DE CORRIDA</span>
+                <h2 class="text-3xl md:text-5xl font-racing font-bold text-white">Pilares de Excelência</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
+                    <div class="text-3xl p-3 bg-rbrRed/20 rounded-xl text-rbrRed">🏎️</div>
+                    <div>
+                        <h3 class="font-racing text-white font-bold text-lg">Performance</h3>
+                        <p class="text-gray-400 text-xs mt-1">Aceleração de 0 a 100 km/h em menos de 2.4s com forças laterais superiores a 5G.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
+                    <div class="text-3xl p-3 bg-rbrYellow/20 rounded-xl text-rbrYellow">⚙️</div>
+                    <div>
+                        <h3 class="font-racing text-white font-bold text-lg">Engenharia</h3>
+                        <p class="text-gray-400 text-xs mt-1">Estruturas leves em fibra de carbono com rigorosa rigidez torcional.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
+                    <div class="text-3xl p-3 bg-rbrRed/20 rounded-xl text-rbrRed">📊</div>
+                    <div>
+                        <h3 class="font-racing text-white font-bold text-lg">Estratégia</h3>
+                        <p class="text-gray-400 text-xs mt-1">Análise de dados de telemetria em tempo real conectada ao pit wall.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
+                    <div class="text-3xl p-3 bg-rbrYellow/20 rounded-xl text-rbrYellow">🏁</div>
+                    <div>
+                        <h3 class="font-racing text-white font-bold text-lg">Corridas</h3>
+                        <p class="text-gray-400 text-xs mt-1">Execução impecável em largadas, ultrapassagens e gestão tática de pneus.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
+                    <div class="text-3xl p-3 bg-rbrRed/20 rounded-xl text-rbrRed">🌎</div>
+                    <div>
+                        <h3 class="font-racing text-white font-bold text-lg">Circuitos</h3>
+                        <p class="text-gray-400 text-xs mt-1">Desempenho otimizado tanto em pistas de alta velocidade quanto em traçados de rua.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
+                    <div class="text-3xl p-3 bg-rbrYellow/20 rounded-xl text-rbrYellow">🏆</div>
+                    <div>
+                        <h3 class="font-racing text-white font-bold text-lg">Conquistas</h3>
+                        <p class="text-gray-400 text-xs mt-1">Cultura vencedora voltada para a superação contínua de recordes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-4 md:px-8 bg-gradient-to-b from-rbrNavy via-rbrDarkBlue to-rbrNavy relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <span class="text-rbrYellow font-racing text-xs font-bold tracking-widest uppercase">GALERIA VISUAL</span>
+                <h2 class="text-3xl md:text-5xl font-racing font-bold text-white">Bastidores & Pistas</h2>
+                <p class="text-gray-400 text-sm">Clique nas fotos para expandir na galeria.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div onclick="openLightbox('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=1600&q=80', 'Carro em Velocidade Máxima')" 
+                     class="cursor-pointer overflow-hidden rounded-xl glass-card group h-48 md:h-64 relative">
+                    <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="F1 Car Speed">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <i class="fa-solid fa-expand text-white text-xl"></i>
+                    </div>
+                </div>
+
+                <div onclick="openLightbox('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1600&q=80', 'Pit Stop & Garagem da Equipe')" 
+                     class="cursor-pointer overflow-hidden rounded-xl glass-card group h-48 md:h-64 relative">
+                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Pit Stop Garage">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <i class="fa-solid fa-expand text-white text-xl"></i>
+                    </div>
+                </div>
+
+                <div onclick="openLightbox('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1600&q=80', 'Foco do Piloto na Garagem')" 
+                     class="cursor-pointer overflow-hidden rounded-xl glass-card group h-48 md:h-64 relative">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Driver Helmet Focus">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <i class="fa-solid fa-expand text-white text-xl"></i>
+                    </div>
+                </div>
+
+                <div onclick="openLightbox('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1600&q=80', 'Celebração no Pódio')" 
+                     class="cursor-pointer overflow-hidden rounded-xl glass-card group h-48 md:h-64 relative">
+                    <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Podium Celebration">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <i class="fa-solid fa-expand text-white text-xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-rbrNavy border-t border-gray-800 pt-16 pb-12 px-4 md:px-8 relative z-10 text-gray-400 text-sm">
+        <div class="max-w-7xl mx-auto space-y-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Info -->
+                <div class="space-y-4 md:col-span-2">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQffYmuwOuueIncS8lwTyCqTrlQfpaDzOo2OL5jIVtn79EjJP_arDd5catK&s=10" 
+                         alt="Red Bull Racing Footer Logo" 
+                         class="h-10 w-auto">
+                    <p class="text-xs text-gray-400 max-w-md leading-relaxed">
+                        Portal informativo sobre a equipe Oracle Red Bull Racing da Fórmula 1. Todas as marcas registradas pertencem aos seus respectivos proprietários.
+                    </p>
+                </div>
+
+                <!-- Nav -->
+                <div>
+                    <h4 class="font-racing text-white text-xs uppercase tracking-wider mb-3">Navegação</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#inicio" class="hover:text-rbrYellow transition-colors">Início</a></li>
+                        <li><a href="#equipe" class="hover:text-rbrYellow transition-colors">A Equipe</a></li>
+                        <li><a href="#pilotos" class="hover:text-rbrYellow transition-colors">Pilotos</a></li>
+                        <li><a href="#chefe" class="hover:text-rbrYellow transition-colors">Liderança</a></li>
+                        <li><a href="#engenharia" class="hover:text-rbrYellow transition-colors">Engenharia</a></li>
+                        <li><a href="#conquistas" class="hover:text-rbrYellow transition-colors">Conquistas</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social Links -->
+                <div>
+                    <h4 class="font-racing text-white text-xs uppercase tracking-wider mb-3">Siga a Equipe</h4>
+                    <div class="flex space-x-3 text-lg">
+                        <a href="https://instagram.com/redbullracing" target="_blank" aria-label="Instagram" class="w-10 h-10 rounded-lg glass-panel flex items-center justify-center hover:text-rbrYellow transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://twitter.com/redbullracing" target="_blank" aria-label="Twitter" class="w-10 h-10 rounded-lg glass-panel flex items-center justify-center hover:text-rbrYellow transition-colors">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a href="https://youtube.com/redbullracing" target="_blank" aria-label="YouTube" class="w-10 h-10 rounded-lg glass-panel flex items-center justify-center hover:text-rbrRed transition-colors">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sponsor Banner -->
+            <div class="pt-8 border-t border-gray-800">
+                <p class="text-[10px] font-racing uppercase tracking-widest text-center text-gray-500 mb-4">PARCEIROS TÉCNICOS E OFICIAIS</p>
+                <div class="flex flex-wrap items-center justify-center gap-8 text-gray-500 font-racing text-xs uppercase font-bold opacity-70">
+                    <span>ORACLE</span>
+                    <span>TAG HEUER</span>
+                    <span>HONDA</span>
+                    <span>MOBIL 1</span>
+                    <span>BYBIT</span>
+                    <span>PUMA</span>
+                    <span>PIRELLI</span>
+                </div>
+            </div>
+
+            <div class="text-center text-xs text-gray-600 pt-2">
+                &copy; 2026 Oracle Red Bull Racing Fan Portal. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL - DRIVER DETAILS -->
+    <div id="driverModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div class="glass-card max-w-2xl w-full p-6 rounded-3xl relative border border-gray-700 space-y-4">
+            <button onclick="closeDriverModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="modalContent" class="space-y-4"></div>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightboxModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/90 backdrop-blur-lg">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl hover:text-rbrRed transition-colors">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-4xl w-full text-center space-y-4">
+            <img id="lightboxImage" src="" alt="Enlarged gallery view" class="max-h-[80vh] mx-auto rounded-2xl shadow-2xl border border-gray-800">
+            <p id="lightboxCaption" class="font-racing text-sm text-rbrYellow uppercase tracking-wider"></p>
+        </div>
+    </div>
+
+    <script>
+        // Official Drivers Data Store
+        const driverData = {
+            verstappen: {
+                name: "Max Verstappen",
+                number: "#1",
+                flag: "🇳🇱",
+                country: "Holanda",
+                role: "Tetracampeão Mundial de F1",
+                bio: "Max Verstappen ingressou na Red Bull Racing em 2016 e estabeleceu-se como uma força dominante na Fórmula 1. Com pilotagem cirúrgica, ritmo impressionante de corrida e foco total, conquistou quatro títulos mundiais consecutivos.",
+                stats: [
+                    { label: "GPs Disputados", val: "200+" },
+                    { label: "Vitórias", val: "61" },
+                    { label: "Pódios", val: "107" },
+                    { label: "Poles", val: "40" }
+                ]
+            },
+            hadjar: {
+                name: "Isack Hadjar",
+                number: "#6",
+                flag: "🇫🇷",
+                country: "França",
+                role: "Piloto Titular de F1",
+                bio: "Promovido diretamente do programa Red Bull Junior Team, Isack Hadjar destaca-se pelo talento nato, pilotagem agressiva e veloz nas qualificações e capacidade de disputar posições com determinação.",
+                stats: [
+                    { label: "Nacionalidade", val: "Francesa" },
+                    { label: "Número do Carro", val: "#6" },
+                    { label: "Programa", val: "Red Bull Junior" },
+                    { label: "Categoria", val: "Fórmula 1" }
+                ]
+            }
+        };
+
+        function openDriverModal(driverKey) {
+            const data = driverData[driverKey];
+            if (!data) return;
+
+            const content = `
+                <div class="flex items-center gap-4 border-b border-gray-800 pb-4">
+                    <span class="text-4xl font-racing font-extrabold text-rbrRed">${data.number}</span>
+                    <div>
+                        <h3 class="text-2xl font-racing font-bold text-white">${data.name} ${data.flag}</h3>
+                        <p class="text-rbrYellow font-racing text-xs uppercase tracking-wider">${data.role}</p>
+                    </div>
+                </div>
+                <p class="text-gray-300 text-sm leading-relaxed">${data.bio}</p>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 text-center font-racing">
+                    ${data.stats.map(s => `
+                        <div class="glass-panel p-3 rounded-xl">
+                            <p class="text-[10px] text-gray-400 uppercase">${s.label}</p>
+                            <p class="text-base font-bold text-white mt-1">${s.val}</p>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+
+            document.getElementById('modalContent').innerHTML = content;
+            document.getElementById('driverModal').classList.remove('hidden');
+        }
+
+        function closeDriverModal() {
+            document.getElementById('driverModal').classList.add('hidden');
+        }
+
+        // Lightbox Handler
+        function openLightbox(imgUrl, caption) {
+            document.getElementById('lightboxImage').src = imgUrl;
+            document.getElementById('lightboxCaption').textContent = caption;
+            document.getElementById('lightboxModal').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxModal').classList.add('hidden');
+        }
+
+        // Mobile Menu Drawer Toggle
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        mobileBtn.addEventListener('click', () => {
+            mobileDrawer.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileDrawer.classList.add('hidden');
+            });
+        });
+
+        // Speed Canvas Background
+        const canvas = document.getElementById('speedCanvas');
+        const ctx = canvas.getContext('2d');
+        let lines = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function initCanvas() {
+            resizeCanvas();
+            lines = [];
+            for (let i = 0; i < 35; i++) {
+                lines.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    length: Math.random() * 80 + 30,
+                    speed: Math.random() * 3 + 1.5,
+                    color: Math.random() > 0.5 ? 'rgba(225, 6, 0, 0.35)' : 'rgba(255, 204, 0, 0.25)'
+                });
+            }
+        }
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            lines.forEach(l => {
+                ctx.beginPath();
+                ctx.moveTo(l.x, l.y);
+                ctx.lineTo(l.x + l.length, l.y);
+                ctx.strokeStyle = l.color;
+                ctx.lineWidth = 1.2;
+                ctx.stroke();
+
+                l.x += l.speed;
+                if (l.x > canvas.width) {
+                    l.x = -l.length;
+                    l.y = Math.random() * canvas.height;
+                }
+            });
+            requestAnimationFrame(animateCanvas);
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+
+        // Counter Animation on Scroll
+        let animated = false;
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !animated) {
+                    animated = true;
+                    document.querySelectorAll('.counter').forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        let count = 0;
+                        const increment = Math.ceil(target / 35);
+
+                        const updateCount = () => {
+                            count += increment;
+                            if (count >= target) {
+                                counter.textContent = target;
+                            } else {
+                                counter.textContent = count;
+                                setTimeout(updateCount, 30);
+                            }
+                        };
+                        updateCount();
+                    });
+                }
+            });
+        }, { threshold: 0.4 });
+
+        counterObserver.observe(document.getElementById('estatisticas'));
+
+        window.onload = function() {
+            initCanvas();
+            animateCanvas();
+        };
+    </script>
+</body>
+</html>
