@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oracle Red Bull Racing | Sorteio Oficial VIP</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Syne & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rbNavy: '#030814',
+                        rbBlue: '#0a1226',
+                        rbCard: '#0f1b36',
+                        rbRed: '#ed1c24',
+                        rbYellow: '#fdb913',
+                        rbGold: '#ffcc00'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Syne', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #030814;
+            color: #e2e8f0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glow-red {
+            box-shadow: 0 0 40px -5px rgba(237, 28, 36, 0.45);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 30%, #fdb913 70%, #ed1c24 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-racing {
+            position: relative;
+            background: rgba(15, 27, 54, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card-racing:hover {
+            border-color: #ed1c24;
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -15px rgba(237, 28, 36, 0.3);
+        }
+
+        .driver-hero-full {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            min-height: 280px;
+            transition: all 0.3s ease;
+        }
+
+        .driver-hero-full:hover {
+            border-color: #fdb913;
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px -10px rgba(253, 185, 19, 0.3);
+        }
+
+        .bg-grid {
+            background-image: radial-gradient(rgba(253, 185, 19, 0.12) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-rbRed selection:text-white">
+
+    <!-- FAIXA DE BRANDING NO TOPO DA TELA (RACING STRIP) -->
+    <div class="w-full bg-rbNavy border-b border-white/10 py-2.5 px-4 sticky top-0 z-50 backdrop-blur-md bg-rbNavy/90">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-rbRed"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-rbYellow"></span>
+                <span class="font-display font-black text-xs tracking-wider text-white uppercase ml-1">ORACLE RED BULL RACING</span>
+            </div>
+            <div class="hidden sm:flex items-center gap-2 text-[10px] font-mono text-rbYellow uppercase tracking-widest bg-rbCard px-3 py-1 rounded-full border border-rbYellow/30">
+                <i class="fa-solid fa-flag-checkered"></i> PADDOCK CLUB OFFICIAL PASS
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO SECTION COM IMAGEM DO CARRO MAIS CLARA -->
+    <section class="relative min-h-screen pt-10 pb-20 px-4 flex items-center justify-center bg-grid overflow-hidden">
+        
+        <!-- Imagem do Carro no Fundo - Iluminação e Visibilidade Ajustadas -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://s2-ge.glbimg.com/FcU4Gtg3R-c2iDqVXTrqQ_qmBh0=/0x0:3840x2160/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2026/G/5/StmFEIT7GUyF60iKluFw/si202601140767.jpg" 
+                 alt="Red Bull Racing F1 Car" 
+                 class="w-full h-full object-cover object-center filter contrast-110 brightness-110 opacity-65">
+            <!-- Degradê Suave para Não Ofuscar a Leitura -->
+            <div class="absolute inset-0 bg-gradient-to-b from-rbNavy/80 via-rbNavy/40 to-rbNavy"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-rbNavy/90 via-rbNavy/30 to-rbNavy/90"></div>
+        </div>
+
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-rbRed/20 rounded-full blur-[140px] pointer-events-none z-0"></div>
+
+        <div class="max-w-6xl mx-auto text-center relative z-10 space-y-6">
+            
+            <!-- SELO DE EMBLEMA DA RED BULL VETORIZADO -->
+            <div class="flex items-center justify-center">
+                <div class="inline-flex items-center gap-3 bg-rbNavy/90 border border-rbYellow/40 px-5 py-2.5 rounded-2xl shadow-2xl backdrop-blur-xl">
+                    <div class="flex items-center gap-1 font-display font-black text-lg">
+                        <span class="text-rbRed">RED</span>
+                        <span class="text-rbYellow">BULL</span>
+                    </div>
+                    <span class="w-px h-4 bg-white/20"></span>
+                    <span class="font-display font-extrabold text-xs tracking-widest text-white uppercase">RACING F1® TEAM</span>
+                </div>
+            </div>
+
+            <!-- Título Principal -->
+            <h1 class="text-5xl sm:text-7xl md:text-8xl font-display font-black tracking-tight text-white leading-none drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)]">
+                ENTRE NO <br>
+                <span class="text-gradient">PADDOCK</span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-100 font-medium leading-relaxed drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+                Cadastre-se gratuitamente para concorrer a credenciais exclusivas, conhecer os pilotos nos boxes, ganhar brindes oficiais e acessar a área VIP da <strong class="text-white font-semibold">Oracle Red Bull Racing</strong>.
+            </p>
+
+            <!-- ESTRUTURA TRÍPTICA: PILOTO ESQUERDA - FORMULÁRIO CENTRO - PILOTO DIREITA -->
+            <div id="garanta-acesso" class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch max-w-5xl mx-auto text-left pt-2">
+                
+                <!-- PILOTO 1: MAX VERSTAPPEN -->
+                <div class="lg:col-span-3 order-2 lg:order-1 flex">
+                    <div class="driver-hero-full w-full flex flex-col justify-end p-5 shadow-2xl group">
+                        <img src="https://img.redbull.com/images/c_limit,w_1500,h_1000/f_auto,q_auto/redbullcom/2026/1/14/kxube9xwn3u5bfcxllfa/max-verstappen-2026-oracle-red-bull-racing" 
+                             alt="Max Verstappen" 
+                             class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-rbNavy via-rbNavy/40 to-transparent"></div>
+
+                        <div class="relative z-10 space-y-1">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="bg-rbRed text-white font-display font-extrabold text-xs px-2 py-0.5 rounded">#1</span>
+                                <span class="text-[10px] text-white font-bold uppercase font-mono bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm">Holanda 🇳🇱</span>
+                            </div>
+                            <h3 class="font-display font-black text-xl text-white leading-tight drop-shadow-md">Max Verstappen</h3>
+                            <p class="text-xs text-rbYellow font-semibold drop-shadow">Tetracampeão Mundial</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FORMULÁRIO CENTRAL DE CAPTURA COM MARCA OFICIAL VETORIZADA -->
+                <div class="lg:col-span-6 order-1 lg:order-2">
+                    <div class="bg-rbCard/95 backdrop-blur-2xl p-8 rounded-3xl border border-white/15 glow-red relative overflow-hidden shadow-2xl h-full flex flex-col justify-center">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-rbRed via-rbYellow to-rbRed"></div>
+
+                        <!-- Header do Formulário -->
+                        <div class="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
+                            <div>
+                                <span class="text-[10px] font-mono text-rbYellow uppercase tracking-widest block">PASSAPORTE OFICIAL</span>
+                                <h2 class="font-display font-extrabold text-white text-lg">Inscrição no Sorteio VIP</h2>
+                            </div>
+                            <div class="flex items-center gap-1 bg-rbNavy px-2.5 py-1 rounded-lg border border-rbRed/40">
+                                <i class="fa-solid fa-bullseye text-rbRed text-xs"></i>
+                                <span class="text-[10px] font-display font-extrabold text-white">RB PASS</span>
+                            </div>
+                        </div>
+
+                        <form onsubmit="registrarFan(event)" class="space-y-4">
+                            <div>
+                                <label for="nome" class="block text-xs font-display font-bold text-slate-300 uppercase tracking-wider mb-1.5">Seu Nome Completo</label>
+                                <input type="text" id="nome" required placeholder="Ex: Ayrton Senna" 
+                                       class="w-full bg-rbNavy/90 border border-white/15 rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-rbRed focus:ring-1 focus:ring-rbRed transition-all">
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-xs font-display font-bold text-slate-300 uppercase tracking-wider mb-1.5">Seu E-mail Principal</label>
+                                <input type="email" id="email" required placeholder="seuemail@f1.com" 
+                                       class="w-full bg-rbNavy/90 border border-white/15 rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-rbRed focus:ring-1 focus:ring-rbRed transition-all">
+                            </div>
+
+                            <button type="submit" class="w-full py-4 bg-gradient-to-r from-rbRed to-red-600 hover:from-red-600 hover:to-rbRed text-white font-display font-extrabold text-sm uppercase tracking-wider rounded-xl transition-all shadow-lg shadow-rbRed/40 hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2">
+                                <span>CONCORRER AO PASSE VIP</span>
+                                <i class="fa-solid fa-ticket text-rbYellow"></i>
+                            </button>
+                        </form>
+
+                        <div id="msgSucesso" class="hidden text-center py-6 space-y-3">
+                            <div class="w-14 h-14 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-2xl border border-emerald-500/30">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <h3 class="font-display font-extrabold text-xl text-white">Inscrição Confirmada!</h3>
+                            <p class="text-xs text-slate-300">Boa sorte! Enviamos o seu cupom do sorteio por e-mail.</p>
+                        </div>
+
+                        <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-[11px] text-slate-400">
+                            <span class="flex items-center gap-1.5">
+                                <i class="fa-solid fa-shield-halved text-rbYellow"></i> Sorteio 100% Gratuito
+                            </span>
+                            <span class="flex items-center gap-1.5">
+                                <i class="fa-solid fa-users text-rbRed"></i> +120 mil membros
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PILOTO 2: ISACK HADJAR -->
+                <div class="lg:col-span-3 order-3 flex">
+                    <div class="driver-hero-full w-full flex flex-col justify-end p-5 shadow-2xl group">
+                        <img src="https://img.redbull.com/images/c_fill,g_auto,w_2200,h_1500/f_auto,q_auto/redbullcom/2025/1/7/xbrbtmf6nmu5kndzhlp8/arms-aloft-for-isack" 
+                             alt="Isack Hadjar" 
+                             class="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-rbNavy via-rbNavy/40 to-transparent"></div>
+
+                        <div class="relative z-10 space-y-1">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="bg-rbYellow text-rbNavy font-display font-extrabold text-xs px-2 py-0.5 rounded">#6</span>
+                                <span class="text-[10px] text-white font-bold uppercase font-mono bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm">França 🇫🇷</span>
+                            </div>
+                            <h3 class="font-display font-black text-xl text-white leading-tight drop-shadow-md">Isack Hadjar</h3>
+                            <p class="text-xs text-slate-300 font-semibold drop-shadow">Red Bull Junior Team</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CARDS DE EXPERIÊNCIAS E PREMIAÇÕES DO SORTEIO -->
+    <section class="py-20 px-4 bg-rbBlue/60 relative border-y border-white/5">
+        <div class="max-w-6xl mx-auto">
+            
+            <div class="text-center max-w-xl mx-auto mb-14 space-y-2">
+                <span class="text-rbYellow font-display font-bold text-xs uppercase tracking-widest">O QUE VOCÊ PODE GANHAR</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-black text-white">Experiências Exclusivas VIP</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1: Meet & Greet -->
+                <div class="card-racing p-6 rounded-3xl space-y-4 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-rbYellow/15 text-rbYellow border border-rbYellow/30 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-handshake-simple"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-white">Meet & Greet com os Pilotos</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Conheça Max Verstappen e Isack Hadjar pessoalmente, tire fotos exclusivas e receba autógrafos nos boxes.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-white/5 text-xs text-rbYellow font-display font-bold flex items-center gap-1.5">
+                        <i class="fa-solid fa-star text-[10px]"></i> Acesso Fã VIP
+                    </div>
+                </div>
+
+                <!-- Card 2: Tour no Pit Garage -->
+                <div class="card-racing p-6 rounded-3xl space-y-4 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-rbRed/15 text-rbRed border border-rbRed/30 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-warehouse"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-white">Tour no Pit Garage</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Acompanhe a preparação dos carros de perto, veja a equipe de mecânicos em ação e sinta a energia antes do GP.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-white/5 text-xs text-rbRed font-display font-bold flex items-center gap-1.5">
+                        <i class="fa-solid fa-star text-[10px]"></i> Bastidores Oficiais
+                    </div>
+                </div>
+
+                <!-- Card 3: Paddock VIP Lounge -->
+                <div class="card-racing p-6 rounded-3xl space-y-4 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-rbYellow/15 text-rbYellow border border-rbYellow/30 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-crown"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-white">Paddock VIP Lounge</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Passe de acesso à área reservada para convidados especiais, com visão privileged da pista, buffet e drinks inclusos.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-white/5 text-xs text-rbYellow font-display font-bold flex items-center gap-1.5">
+                        <i class="fa-solid fa-star text-[10px]"></i> Área de Convidados
+                    </div>
+                </div>
+
+                <!-- Card 4: Kit de Brindes -->
+                <div class="card-racing p-6 rounded-3xl space-y-4 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 rounded-2xl bg-rbRed/15 text-rbRed border border-rbRed/30 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-gift"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-white">Kit de Brindes Exclusivos</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Ganhe boné oficial autografado, jaqueta da equipe Oracle Red Bull Racing e colecionáveis da temporada.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-white/5 text-xs text-rbRed font-display font-bold flex items-center gap-1.5">
+                        <i class="fa-solid fa-star text-[10px]"></i> Merchandising Oficial
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Extra: Telemetria e Transmissão Exclusiva -->
+            <div class="mt-8 card-racing p-6 rounded-3xl flex flex-col sm:flex-row items-center justify-between gap-6 bg-gradient-to-r from-rbCard via-rbBlue to-rbCard">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-rbYellow/15 text-rbYellow border border-rbYellow/30 flex items-center justify-center text-xl font-bold flex-shrink-0">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-display font-bold text-lg text-white">Bônus: Telemetria & Rádio ao Vivo</h4>
+                        <p class="text-slate-400 text-xs">Todos os inscritos ganham acesso aos dados táticos de pneus e comunicação de rádio em tempo real.</p>
+                    </div>
+                </div>
+                <a href="#garanta-acesso" class="bg-rbRed hover:bg-red-600 text-white font-display text-xs font-extrabold px-6 py-3 rounded-xl uppercase tracking-wider transition-all shadow-lg shadow-rbRed/30 whitespace-nowrap">
+                    Participar Agora
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER MÍNIMO -->
+    <footer class="py-8 px-4 text-center text-xs text-slate-600 border-t border-white/5">
+        <p>&copy; 2026 Oracle Red Bull Racing Fan Community. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function registrarFan(event) {
+            event.preventDefault();
+            const form = event.target;
+            const msgSucesso = document.getElementById('msgSucesso');
+            
+            form.classList.add('hidden');
+            msgSucesso.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
