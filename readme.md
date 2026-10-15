@@ -14,7 +14,7 @@
 * **Instituição de Ensino:** Faculdade Municipal de Palhoça (FMP)
 * **Curso:** Análise e Desenvolvimento de Sistemas (ADS)
 * **Fase:** 1ª Fase
-* **Disciplina:** PRÁTICA DE PROGRAMAÇÃOWEB 
+* **Disciplina:** PRÁTICA DE PROGRAMAÇÃO WEB 
 * **Data da Entrega:** 15 de Outubro de 2026
 * **Autor:** Pedro Henrique Sell
 
