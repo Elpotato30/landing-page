@@ -176,14 +176,6 @@ O layout usa os *breakpoints* do Tailwind (`sm`, `md`, `lg`):
 
 ---
 
-## 🚀 Como Executar o Projeto
-
-Não há instalação nem *build*: é um único arquivo HTML.
-
-**Online:** acesse https://elpotato30.github.io/landing-page/
-
----
-
 ## 📚 Créditos e Aviso Legal
 
 * Marca, nome da equipe, fotos dos pilotos e do carro pertencem aos seus respectivos proprietários e são usados **apenas para fins educacionais**.
