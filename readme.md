@@ -1,116 +1,244 @@
 # 🏎️ Oracle Red Bull Racing — Sorteio Oficial VIP (Projeto Acadêmico)
 
-## 👨‍💻 Desenvolvido por Pedro Henrique Sell
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-online-222222?style=for-the-badge&logo=github&logoColor=white)
 
-Aluno do curso de **Análise e Desenvolvimento de Sistemas (ADS)** da **Faculdade Municipal de Palhoça (FMP)** — 1ª Fase (2026).
+🔗 **Site publicado:** https://elpotato30.github.io/landing-page/
 
+---
 
 ## 📅 Informações Acadêmicas
 
 * **Instituição de Ensino:** Faculdade Municipal de Palhoça (FMP)
 * **Curso:** Análise e Desenvolvimento de Sistemas (ADS)
 * **Fase:** 1ª Fase
-* **Data da Entrega:** 15 de Outubro de 2026
 * **Disciplina:** Desenvolvimento Web / Front-End Inicial
+* **Data da Entrega:** 15 de Outubro de 2026
+* **Autor:** Pedro Henrique Sell
 
-\---
+---
 
 ## 📖 História e Conceito do Site (Fictício)
 
-Este projeto consiste em uma **Landing Page fictícia de captura e engajamento** inspirada na equipe de Fórmula 1 **Oracle Red Bull Racing**.
+Este projeto é uma **landing page fictícia de captura de leads e engajamento**, inspirada na equipe de Fórmula 1 **Oracle Red Bull Racing**.
 
-### A História por trás do Projeto
+### A história por trás do projeto
 
-A proposta do site é simular uma campanha publicitária oficial da equipe Red Bull Racing durante a temporada de Fórmula 1. O objetivo do portal é atrair fãs do automobilismo mundial oferecendo a oportunidade de concorrer a um **Passe VIP Paddock Club**, que concede acesso aos boxes, *Meet \& Greet* com os pilotos (Max Verstappen e Isack Hadjar), além de brindes exclusivos e acesso aos dados de telemetria da equipe em tempo real.
+A proposta simula uma campanha publicitária da equipe durante a temporada de F1. O objetivo da página é atrair fãs de automobilismo e convidá-los a se cadastrar para **concorrer a um Passe VIP Paddock Club**, que inclui *Meet & Greet* com os pilotos (Max Verstappen e Isack Hadjar), tour no pit garage, acesso a um lounge VIP, kit de brindes e acesso a telemetria e rádio da equipe.
 
-> \*\*Nota:\*\* Este é um projeto \*\*100% fictício\*\*, desenvolvido estritamente para fins acadêmicos e pedagógicos durante o primeiro semestre do curso de ADS, sem qualquer vínculo comercial com a Red Bull GmbH ou a Formula One World Championship Limited.
+> **Nota:** Este é um projeto **100% fictício**, feito para fins acadêmicos e pedagógicos no primeiro semestre do curso de ADS. Não possui vínculo comercial com a Red Bull GmbH nem com a Formula One World Championship Limited. O sorteio **não existe** e os dados digitados no formulário **não são enviados nem armazenados**.
 
-\---
+### Objetivo da página (jornada do usuário)
+
+1. O visitante chega e vê o título **"ENTRE NO PADDOCK"** sobre a foto do carro.
+2. Conhece os dois pilotos nos cards laterais.
+3. Preenche **nome** e **e-mail** no formulário central.
+4. Recebe uma tela de **confirmação** sem recarregar a página.
+5. Rola até as **experiências** do sorteio e pode voltar ao formulário pelo botão **"Participar Agora"**.
+
+---
+
+## 🖼️ Pré-visualização
+
+> _Adicione aqui um print da página, por exemplo `docs/preview.png`, com a sintaxe `![Prévia do site](docs/preview.png)`._
+
+---
 
 ## 🎨 Paleta de Cores (Tabela HEX)
 
-A identidade visual foi construída com base nos tons oficiais de azul, vermelho e amarelo da Oracle Red Bull Racing:
+Definida no `tailwind.config` dentro do `index.html`:
 
-|Representação Visual|Nome da Cor|Código HEX|Utilização no Projeto|
-|:-:|:-:|:-:|-|
-|`#030814`|**rbNavy**|`#030814`|Fundo principal da página e elementos de alto contraste.|
-|`#0a1226`|**rbBlue**|`#0a1226`|Fundo de seções secundárias e overlays.|
-|`#0f1b36`|**rbCard**|`#0f1b36`|Cards de conteúdo, containers e caixas de formulário com desfoque.|
-|`#ed1c24`|**rbRed**|`#ed1c24`|Botões de ação principais (CTA), bordas em destaque e badges.|
-|`#fdb913`|**rbYellow**|`#fdb913`|Destaques de texto, detalhes e selos do evento.|
-|`#ffcc00`|**rbGold**|`#ffcc00`|Acentos secundários e gradientes de iluminação.|
+| Nome da Cor | Código HEX | Utilização no Projeto |
+|-|:-:|-|
+| **rbNavy** | `#030814` | Fundo principal da página, faixa do topo e overlays do hero |
+| **rbBlue** | `#0a1226` | Fundo da seção de prêmios e gradientes |
+| **rbCard** | `#0f1b36` | Cartão do formulário, cards de prêmios e selo "PADDOCK CLUB" |
+| **rbRed** | `#ed1c24` | Botões de ação (CTA), brilho do formulário, ícones e destaques |
+| **rbYellow** | `#fdb913` | Destaques de texto, ícones, grade de pontos e gradiente do título |
+| **rbGold** | `#ffcc00` | Acento secundário (declarado na paleta) |
 
-\---
+Cores extras usadas pelo Tailwind: tons de `slate` para textos secundários e `emerald` para o ícone de confirmação.
+
+## 🔤 Tipografia
+
+* **Syne** (700, 800, 900): títulos e elementos de destaque (classe `font-display`).
+* **Inter** (300 a 700): corpo de texto, para boa legibilidade (classe `font-sans`).
+
+---
 
 ## 🏷️ Tags HTML e Bibliotecas Utilizadas
 
-### Tags HTML5 Implementadas:
+### Tags HTML5 implementadas
 
-* `<!DOCTYPE html>`: Declaração do documento HTML5.
-* `<html>`: Elemento raiz configurado em Português do Brasil (`pt-BR`) e com rolagem suave (`scroll-smooth`).
-* `<head>`: Metadados, scripts CDN e estilizações globais.
-* `<meta>`: Configuração de *charset* (UTF-8) e responsividade para dispositivos móveis (*viewport*).
-* `<title>`: Título da aba do navegador.
-* `<script>`: Importação do Tailwind CSS via CDN e configuração do Javascript customizado.
-* `<link>`: Importação dos ícones do Font Awesome e fontes do Google Fonts.
-* `<style>`: Estilos CSS customizados embutidos (efeitos de iluminação, gradientes de texto e animações de *hover*).
-* `<body>`: Container principal do conteúdo visível.
-* `<div>`: Divisões estruturais e containers do layout responsivo.
-* `<span>`: Elementos de texto e indicadores de estilo inline (ex: bolinhas decorativas).
-* `<section>`: Divisão semântica das seções (Top Bar, Hero, Experiências/Prêmios, Footer).
-* `<img>`: Exibição das imagens de fundo, carros e cards dos pilotos.
-* `<h1>`, `<h2>`, `<h3>`, `<h4>`: Hierarquia semântica de títulos.
-* `<p>`: Parágrafos descritivos.
-* `<strong font-semibold>`: Destaque de palavras-chave.
-* `<form>`: Estrutura do formulário de captura de lead.
-* `<label>`: Rótulos acessíveis dos campos de entrada do formulário.
-* `<input>`: Campos de entrada de dados (`text` para nome e `email` para e-mail).
-* `<button>`: Botão de envio (*submit*) com animação.
-* `<i>`: Exibição de ícones vetoriais da biblioteca Font Awesome.
-* `<a>`: Links de navegação e ancoragem interna (`#garanta-acesso`).
-* `<footer>`: Rodapé com direitos autorais.
+* `<!DOCTYPE html>`: declaração do documento HTML5.
+* `<html lang="pt-BR" class="scroll-smooth">`: raiz do documento, em português do Brasil e com rolagem suave.
+* `<head>`: metadados, CDNs e estilos globais.
+* `<meta>`: `charset` (UTF-8) e `viewport` (responsividade em celulares).
+* `<title>`: título da aba do navegador.
+* `<script>`: Tailwind via CDN, configuração do tema e JavaScript da página.
+* `<link>`: Font Awesome e Google Fonts (`preconnect` + folha de estilos).
+* `<style>`: CSS customizado (brilho, gradiente de texto, cards e grade de fundo).
+* `<body>`: conteúdo visível.
+* `<div>`: containers e estrutura do layout (faixa do topo, grid, cards).
+* `<span>`: textos curtos, bolinhas decorativas e selos.
+* `<section>`: seções semânticas (Hero e Prêmios).
+* `<img>`: foto do carro (fundo) e fotos dos pilotos.
+* `<h1>`, `<h2>`, `<h3>`, `<h4>`: hierarquia de títulos.
+* `<p>`: parágrafos descritivos.
+* `<strong>`: destaque de "Oracle Red Bull Racing" no texto de apresentação.
+* `<form>`: formulário de captura (`onsubmit="registrarFan(event)"`).
+* `<label>`: rótulos dos campos, ligados aos inputs por `for`/`id`.
+* `<input>`: campos `type="text"` (nome) e `type="email"` (e-mail), ambos `required`.
+* `<button>`: botão de envio (`type="submit"`).
+* `<a>`: link de âncora interna (`#garanta-acesso`).
+* `<i>`: ícones do Font Awesome.
+* `<footer>`: rodapé com copyright.
 
-### Bibliotecas e Recursos Externos:
+### Bibliotecas e recursos externos
 
-1. **Tailwind CSS (v3 CDN):** Framework de CSS utilitário para layout responsivo (Grid/Flexbox) e estilização ágil.
-2. **Font Awesome (v6.4.0):** Biblioteca de ícones vetoriais.
-3. **Google Fonts:**
+1. **Tailwind CSS (CDN):** utilitários para layout responsivo (Grid/Flexbox), cores, espaçamentos e efeitos.
+2. **Font Awesome 6.4.0:** ícones (bandeira quadriculada, ticket, troféu, coroa, presente etc.).
+3. **Google Fonts:** Syne e Inter.
+4. **Imagens externas:** foto do carro (hero) e fotos dos pilotos, carregadas por URL.
 
-   * **Syne:** Utilizada para títulos e cabeçalhos de alta visibilidade (*display font*).
-   * **Inter:** Utilizada no corpo de texto para legibilidade otimizada (*sans-serif*).
+---
 
-\---
+## 🧩 Recursos de CSS Customizado (`<style>`)
 
-## 🔍 Detalhamento do Código por Blocos e Linhas Importantes (`index.html`)
+| Classe | O que faz |
+|-|-|
+| `.glow-red` | Sombra/brilho vermelho ao redor do formulário |
+| `.text-gradient` | Texto com gradiente branco → amarelo → vermelho (palavra "PADDOCK") |
+| `.card-racing` | Card com vidro fosco (`backdrop-filter`) e efeito *hover* (sobe e ganha borda vermelha) |
+| `.driver-hero-full` | Cards dos pilotos com foto de fundo e *hover* com borda amarela |
+| `.bg-grid` | Fundo de pontos amarelos sutis no hero |
 
-Abaixo está o mapeamento detalhado da estrutura do arquivo principal do site:
+---
+
+## 🔍 Estrutura e Detalhamento do Código (`index.html`)
+
+O arquivo está organizado em blocos, identificados pelos comentários do próprio HTML:
 
 ```text
-Linhas 01 - 04  : Declaração DOCTYPE e tag <html> configurada com rolagem suave (scroll-smooth).
-Linhas 05 - 12  : Tag <head> contendo charset, viewport, título e carregamento do Tailwind CSS e Font Awesome.
-Linhas 13 - 15  : Conexão e pré-carregamento das fontes "Syne" e "Inter" via Google Fonts.
-Linhas 17 - 35  : Bloco <script> de customização do tema no Tailwind (configuração das cores customizadas rbNavy, rbRed, etc).
-Linhas 37 - 81  : Bloco <style> com classes customizadas de CSS (glow-red, text-gradient, card-racing, bg-grid).
-Linha  83       : Abertura da tag <body> com classe de seleção customizada e anti-aliasing de fonte.
-Linhas 85 - 97  : Strip/Faixa de Branding Fixa (Sticky Topbar) com o nome da equipe e badge "PADDOCK CLUB".
-Linhas 99 - 222 : Seção "Hero" Principal:
-   - Linhas 102 - 110 : Imagem de fundo do carro de F1 com efeito de camada escura (overlay gradient) para legibilidade.
-   - Linhas 115 - 125 : Selo/Emblema centralizado da marca "RED BULL RACING F1 TEAM".
-   - Linhas 128 - 135 : Título principal com gradiente de texto ("ENTRE NO PADDOCK") e subtítulo explicativo.
-   - Linhas 138 - 220 : Layout Tríptico em Grid (3 Colunas no Desktop):
-        • Coluna 1 (Linhas 141 - 158) : Card em destaque do Piloto 1 (Max Verstappen #1).
-        • Coluna 2 (Linhas 161 - 200) : Formulário de captura com validação simples e tela de confirmação rápida.
-        • Coluna 3 (Linhas 203 - 220) : Card em destaque do Piloto 2 (Isack Hadjar #6).
-Linhas 224 - 289 : Seção de Experiências / Grid de Prêmios VIP (4 Cards + Card Bônus em Grid Responsivo).
-Linhas 291 - 295 : Rodapé (Footer) com os direitos fictícios da página.
-Linhas 297 - 306 : Script JS inline (função registrarFan) que oculta o formulário e exibe a mensagem de confirmação sem dar refresh.
+<head>
+  ├─ meta charset / viewport / title
+  ├─ Tailwind CSS (CDN)
+  ├─ Font Awesome (CDN)
+  ├─ Google Fonts: Syne & Inter
+  ├─ <script> tailwind.config → cores customizadas (rbNavy, rbRed...) e fontes
+  └─ <style> → .glow-red, .text-gradient, .card-racing, .driver-hero-full, .bg-grid
+
+<body>
+  ├─ FAIXA DE BRANDING NO TOPO (sticky)
+  │     nome da equipe + selo "PADDOCK CLUB OFFICIAL PASS" (oculto no mobile)
+  │
+  ├─ HERO SECTION
+  │     ├─ Imagem do carro ao fundo + degradês para legibilidade
+  │     ├─ Selo vetorizado "RED BULL RACING F1 TEAM"
+  │     ├─ Título "ENTRE NO PADDOCK" e texto de apresentação
+  │     └─ Estrutura em 3 colunas (id="garanta-acesso", grid de 12 colunas)
+  │           ├─ Coluna 1 (3/12): card do Max Verstappen (#1, Holanda)
+  │           ├─ Coluna 2 (6/12): formulário "Inscrição no Sorteio VIP"
+  │           │     • campos nome e e-mail (required)
+  │           │     • tela de confirmação (id="msgSucesso", inicia oculta)
+  │           │     • selos "Sorteio 100% Gratuito" e "+120 mil membros"
+  │           └─ Coluna 3 (3/12): card do Isack Hadjar (#6, França)
+  │
+  ├─ SEÇÃO "O QUE VOCÊ PODE GANHAR" (4 cards + card bônus)
+  │     Meet & Greet · Tour no Pit Garage · Paddock VIP Lounge · Kit de Brindes
+  │     Bônus: Telemetria & Rádio ao Vivo (botão "Participar Agora")
+  │
+  ├─ FOOTER mínimo (direitos fictícios)
+  │
+  └─ <script> → função registrarFan(event)
 ```
 
-\---
+### Função JavaScript
+
+```js
+function registrarFan(event) {
+    event.preventDefault();                 // impede o recarregamento da página
+    const form = event.target;
+    const msgSucesso = document.getElementById('msgSucesso');
+
+    form.classList.add('hidden');           // esconde o formulário
+    msgSucesso.classList.remove('hidden');  // mostra "Inscrição Confirmada!"
+}
+```
+
+A validação dos campos (preenchimento obrigatório e formato de e-mail) é feita pelo próprio navegador, por meio dos atributos `required` e `type="email"`.
+
+---
+
+## 📱 Responsividade
+
+O layout usa os *breakpoints* do Tailwind (`sm`, `md`, `lg`):
+
+* **Mobile:** tudo em 1 coluna. O formulário vem **primeiro** (`order-1`) e os pilotos depois, para priorizar a conversão. O selo do topo fica oculto.
+* **Tablet (`md`):** cards de prêmios em 2 colunas.
+* **Desktop (`lg`):** hero em 3 colunas (piloto, formulário, piloto) e prêmios em 4 colunas.
+
+---
 
 ## 🚀 Como Executar o Projeto
-Abra o link no navegador
-https://elpotato30.github.io/landing-page/
 
+Não há instalação nem *build*: é um único arquivo HTML.
 
+**Online:** acesse https://elpotato30.github.io/landing-page/
 
+**Localmente:**
+
+1. Baixe ou clone o repositório:
+   ```bash
+   git clone https://github.com/elpotato30/landing-page.git
+   ```
+2. Abra a pasta e dê um duplo clique em `index.html` (ou use a extensão **Live Server** do VS Code).
+
+> **Requisito:** conexão com a internet, pois Tailwind, Font Awesome, Google Fonts e as imagens são carregados de fontes externas.
+
+### Estrutura de arquivos
+
+```text
+.
+├── index.html   # Página completa (HTML + CSS customizado + JavaScript)
+└── README.md    # Documentação do projeto
+```
+
+---
+
+## ✅ Funcionalidades Implementadas
+
+- [x] Faixa de branding fixa no topo (*sticky*)
+- [x] Hero com imagem de fundo, degradês e brilho vermelho
+- [x] Layout em 3 colunas com cards de pilotos e formulário central
+- [x] Formulário com validação nativa do HTML5
+- [x] Tela de confirmação sem recarregar a página
+- [x] Grid de prêmios com efeitos de *hover*
+- [x] Rolagem suave até o formulário (`#garanta-acesso`)
+- [x] Layout responsivo (mobile, tablet e desktop)
+- [x] Publicação no GitHub Pages
+
+## 🔮 Melhorias Futuras
+
+- [ ] Guardar os cadastros de verdade (por exemplo com um serviço de formulários ou um back-end)
+- [ ] Mostrar mensagens de erro personalizadas e limpar o formulário
+- [ ] Adicionar menu de navegação e mais seções (pilotos, equipe, história)
+- [ ] Hospedar as imagens no próprio repositório (pasta `assets/`)
+- [ ] Melhorar acessibilidade (`aria-*`, contraste dos textos pequenos, foco visível)
+- [ ] Incluir aviso de privacidade (LGPD) caso o formulário passe a coletar dados reais
+
+---
+
+## 📚 Créditos e Aviso Legal
+
+* Marca, nome da equipe, fotos dos pilotos e do carro pertencem aos seus respectivos proprietários e são usados **apenas para fins educacionais**.
+* Ícones: [Font Awesome](https://fontawesome.com). Fontes: [Google Fonts](https://fonts.google.com). Estilos: [Tailwind CSS](https://tailwindcss.com).
+* Os números "+120 mil membros" e a existência do sorteio são **fictícios**.
+
+---
+
+## 👨‍💻 Desenvolvido por Pedro Henrique Sell
+
+Aluno do curso de **Análise e Desenvolvimento de Sistemas (ADS)** da **Faculdade Municipal de Palhoça (FMP)** — 1ª Fase (2026).
