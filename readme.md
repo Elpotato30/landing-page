@@ -1,12 +1,9 @@
 # 🏎️ Oracle Red Bull Racing — Sorteio Oficial VIP (Projeto Acadêmico)
 
-!\[HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge\&logo=html5\&logoColor=white)
+## 👨‍💻 Desenvolvido por Pedro Henrique Sell
 
-!\[Tailwind CSS](https://img.shields.io/badge/Tailwind\_CSS-38B2AC?style=for-the-badge\&logo=tailwind-css\&logoColor=white)
+Aluno do curso de **Análise e Desenvolvimento de Sistemas (ADS)** da **Faculdade Municipal de Palhoça (FMP)** — 1ª Fase (2026).
 
-!\[JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge\&logo=javascript\&logoColor=black)
-
-\---
 
 ## 📅 Informações Acadêmicas
 
@@ -112,10 +109,8 @@ Linhas 297 - 306 : Script JS inline (função registrarFan) que oculta o formul�
 \---
 
 ## 🚀 Como Executar o Projeto
+Abra o link no navegador
+https://elpotato30.github.io/landing-page/
 
-## 
 
-## 👨‍💻 Desenvolvido por Pedro Henrique Sell
-
-Aluno do curso de **Análise e Desenvolvimento de Sistemas (ADS)** da **Faculdade Municipal de Palhoça (FMP)** — 1ª Fase (2026).
 
