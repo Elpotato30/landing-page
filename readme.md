@@ -40,12 +40,6 @@ A proposta simula uma campanha publicitária da equipe durante a temporada de F1
 
 ---
 
-## 🖼️ Pré-visualização
-
-> _Adicione aqui um print da página, por exemplo `docs/preview.png`, com a sintaxe `![Prévia do site](docs/preview.png)`._
-
----
-
 ## 🎨 Paleta de Cores (Tabela HEX)
 
 Definida no `tailwind.config` dentro do `index.html`:
