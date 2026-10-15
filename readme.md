@@ -182,47 +182,6 @@ Não há instalação nem *build*: é um único arquivo HTML.
 
 **Online:** acesse https://elpotato30.github.io/landing-page/
 
-**Localmente:**
-
-1. Baixe ou clone o repositório:
-   ```bash
-   git clone https://github.com/elpotato30/landing-page.git
-   ```
-2. Abra a pasta e dê um duplo clique em `index.html` (ou use a extensão **Live Server** do VS Code).
-
-> **Requisito:** conexão com a internet, pois Tailwind, Font Awesome, Google Fonts e as imagens são carregados de fontes externas.
-
-### Estrutura de arquivos
-
-```text
-.
-├── index.html   # Página completa (HTML + CSS customizado + JavaScript)
-└── README.md    # Documentação do projeto
-```
-
----
-
-## ✅ Funcionalidades Implementadas
-
-- [x] Faixa de branding fixa no topo (*sticky*)
-- [x] Hero com imagem de fundo, degradês e brilho vermelho
-- [x] Layout em 3 colunas com cards de pilotos e formulário central
-- [x] Formulário com validação nativa do HTML5
-- [x] Tela de confirmação sem recarregar a página
-- [x] Grid de prêmios com efeitos de *hover*
-- [x] Rolagem suave até o formulário (`#garanta-acesso`)
-- [x] Layout responsivo (mobile, tablet e desktop)
-- [x] Publicação no GitHub Pages
-
-## 🔮 Melhorias Futuras
-
-- [ ] Guardar os cadastros de verdade (por exemplo com um serviço de formulários ou um back-end)
-- [ ] Mostrar mensagens de erro personalizadas e limpar o formulário
-- [ ] Adicionar menu de navegação e mais seções (pilotos, equipe, história)
-- [ ] Hospedar as imagens no próprio repositório (pasta `assets/`)
-- [ ] Melhorar acessibilidade (`aria-*`, contraste dos textos pequenos, foco visível)
-- [ ] Incluir aviso de privacidade (LGPD) caso o formulário passe a coletar dados reais
-
 ---
 
 ## 📚 Créditos e Aviso Legal
